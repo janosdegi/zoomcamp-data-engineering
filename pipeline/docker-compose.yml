@@ -1,0 +1,26 @@
+services:
+  
+  postgres:
+    image: postgres:18
+    container_name: ny_taxi_postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: ny_taxi
+    volumes:
+      - ny_taxi_postgres_data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+
+  #pipeline:
+    #build:
+      #context: .
+      #dockerfile: Dockerfile
+    #image: test:pandas
+    #container_name: test_pandas
+    #depends_on:
+      #- postgres
+  
+  
+volumes:
+  ny_taxi_postgres_data:
